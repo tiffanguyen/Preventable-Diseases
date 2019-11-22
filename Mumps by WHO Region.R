@@ -4,5 +4,7 @@ library(reshape2)
 mumps_long <- melt(mumps, id.vars = 'WHO.region')
 mumps1 <- mumps_long[-c(1:39),]
 library(ggplot2)
-ggplot(data = mumps1, mapping = aes(x = WHO.region, y = value, group = variable)) +
+summary(mumps1)
+mumps1$value<-as.numeric(mumps1$value)
+ggplot(data = mumps1, mapping = aes(x = WHO.region, y = value, color = variable)) +
   geom_line()
