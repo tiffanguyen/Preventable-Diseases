@@ -1,4 +1,4 @@
-setwd("~/Desktop")
+setwd("~/Desktop/R Scripts/Preventable-Diseases")
 measles <- read.csv("cdcstates.csv", header = TRUE)
 m1 <- measles[-c(63,64,65,66,67,68,69),]
 m2 <- m1[,-c(5,6)]
