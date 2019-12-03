@@ -16,6 +16,6 @@ library(maps)
 USA <- map_data("world") %>% filter(region=="USA")
 data <- world.cities %>% filter(country.etc=="USA")
 ggplot() +
-  geom_polygon(data = USA, aes(x=long, y = lat, group = group), fill="grey", alpha=0.3) +
+  geom_polygon(data = USA, aes(x=long, y = lat, group = group), fill="grey") +
   geom_point(data=m3, aes(x=Long, y=Lat, size= Total)) +
-  theme_void() + coord_map() 
+  theme_void() + coord_map()
