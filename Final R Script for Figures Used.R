@@ -1,17 +1,9 @@
-# Graph for all reported cases in 2019
-setwd("~/Desktop/R Scripts/Preventable-Diseases")
-measles <- read.csv("cdc2019.csv", header = TRUE)
-library(ggplot2)
-m <- ggplot(measles, aes(x=factor(Month,levels=month.name), Number.of.Cases))
-m + geom_bar(stat = "identity", fill= "#336B87") + theme_minimal() +
-  labs(title ="Measles Outbreak in the United States in 2019", x = "Months", y = "Number of Reported Cases")
-
 # Graph for all years of reported measle cases
 setwd("~/Desktop/R Scripts/Preventable-Diseases")
-measles <- read.csv("ghoallyears.csv", header = TRUE)
-summary(measles)
+measles1 <- read.csv("ghoallyears.csv", header = TRUE)
+summary(measles1)
 library(ggplot2)
-m <- ggplot(measles, aes(Year, Measles.Cases)) # main graph set up
+m <- ggplot(measles1, aes(Year, Measles.Cases)) # main graph set up
 # bar graph for 1974 to 2019
 m + geom_bar(stat = "identity", fill="#336B87") + theme_minimal() +
   coord_cartesian(xlim = c(1974, 2019), ylim = c(0, 60000)) +
@@ -23,8 +15,8 @@ m + geom_bar(stat = "identity", fill="#336B87") + theme_minimal() +
 
 # Graph for map of US outbreaks
 setwd("~/Desktop/R Scripts/Preventable-Diseases")
-measles <- read.csv("cdcstates.csv", header = TRUE)
-m1 <- measles[-c(63,64,65,66,67,68,69),] #cleaning up data set
+measles2 <- read.csv("cdcstates.csv", header = TRUE)
+m1 <- measles2[-c(63,64,65,66,67,68,69),] #cleaning up data set
 m2 <- m1[,-c(5,6)]
 m3 <- na.omit(m2)
 
